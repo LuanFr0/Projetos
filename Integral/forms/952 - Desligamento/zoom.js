@@ -10,13 +10,13 @@ function Zoom(){
 	this.FieldsName = new Array();
 	this.Colunas = new Array(
 		{
-			"sTitle" : "NOME",
-			"sColumn" : "colleagueName",
-			"sWidth" : "35%"
-		}, {
 			"sTitle" : "CHAPA",
 			"sColumn" : "mail",
 			"sWidth" : "15%"
+		}, {
+			"sTitle" : "NOME",
+			"sColumn" : "colleagueName",
+			"sWidth" : "35%"
 		}, {
 			"sTitle" : "FUNCAO",
 			"sColumn" : "login",

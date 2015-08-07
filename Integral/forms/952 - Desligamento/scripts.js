@@ -31,7 +31,7 @@ if(atividade!="38"){
 	$(".evento").attr("readonly","readonly");
 	$(".ProvDesc").attr("readonly","readonly");
 	$(".diasHoras").attr("readonly","readonly");
-	$(".Valor").attr("readonly","readonly");
+	//$(".valor").attr("readonly","readonly");
 	
 }
 
@@ -42,7 +42,6 @@ if (atividade != "0" && atividade != "1"){
 		document.getElementById("MotDemissao").style.display = "none";
 		document.getElementById("btnAddAreaRequisitante").style.display = "none";
 		document.getElementById("btnAddAprovador").style.display = "none";
-		 
 	 
 		document.getElementById("TpDemissao").disabled = true;
 		document.getElementById("Funcionarios").disabled = true;	
@@ -175,9 +174,8 @@ if(atividade != "86"){
 		ZomDem.FieldsName = new Array("cpCheckCodigo", "txtCodAreaReq");
 		ZomDem.Colunas = new Array(
 
-
-		  { "sTitle" : "NOME", "sColumn" : "NOME","sWidth" : "40%"},
 		  {"sTitle" : "CHAPA", "sColumn" : "CHAPA","sWidth" : "10%"},
+		  { "sTitle" : "NOME", "sColumn" : "NOME","sWidth" : "40%"},
 		  { "sTitle" : "FUNCAO", "sColumn" : "FUNCAO","sWidth" : "40%"},
 		  {"sTitle" : "SECAO", "sColumn" : "SECAO","bVisible": false},
 		  {"sTitle" : "SALARIO", "sColumn" : "SALARIO","bVisible": false},
@@ -335,22 +333,22 @@ function formatar_moeda(campo, separador_milhar, separador_decimal, tecla) {
 	if (strCheck.indexOf(key) == -1) return false; // Valor invÃ??????????Ã?????????Ã????????Ã???????Ã??????Ã?????Ã????Ã???Ã??Ã?Â¡lido (nÃ??????????Ã?????????Ã????????Ã???????Ã??????Ã?????Ã????Ã???Ã??Ã?Â£o inteiro)
 	len = campo.value.length;
 	for(i = 0; i < len; i++)
-	if ((campo.value.charAt(i) != '0') && (campo.value.charAt(i) != separador_decimal)) break;
+	if ((campo.value.charAt(i) != '0') && (campo.value.charAt(i) != separador_milhar)) break;
 	aux = '';
 	for(; i < len; i++)
 	if (strCheck.indexOf(campo.value.charAt(i))!=-1) aux += campo.value.charAt(i);
 	aux += key;
 	len = aux.length;
 	if (len == 0) campo.value = '';
-	if (len == 1) campo.value = '0'+ separador_decimal + '0' + aux;
-	if (len == 2) campo.value = '0'+ separador_decimal + aux;
+	if (len == 1) campo.value = '0'+ separador_milhar + '0' + aux;
+	if (len == 2) campo.value = '0'+ separador_milhar + aux;
 
 	if (len > 2) {
 		aux2 = '';
 
 		for (j = 0, i = len - 3; i >= 0; i--) {
 			if (j == 3) {
-				aux2 += separador_milhar;
+				aux2 += separador_decimal;
 				j = 0;
 			}
 			aux2 += aux.charAt(i);
@@ -361,7 +359,7 @@ function formatar_moeda(campo, separador_milhar, separador_decimal, tecla) {
 		len2 = aux2.length;
 		for (i = len2 - 1; i >= 0; i--)
 		campo.value += aux2.charAt(i);
-		campo.value += separador_decimal + aux.substr(len - 2, len);
+		campo.value += separador_milhar + aux.substr(len - 2, len);
 	}
 
 	return false;
@@ -615,4 +613,19 @@ function verificaDpto(){
 	document.getElementById("DivAprovador").style.display = "block";
 	}
 	
+}
+
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+
+function LimpaForm() {
+	var limpa = "";
+	
+	$(".limpa").val(limpa);
 }

@@ -151,7 +151,7 @@
 								<div>
 									<button type="button" id="btnAddAreaRequisitante"
 										class="btn btn-default fluigicon fluigicon-search fluigicon-xs"
-										onclick="addAreaRequisitante();"></button>
+										onclick="addAreaRequisitante(); LimpaForm();"></button>
 								</div>
 							</div>
 						</div>
@@ -162,7 +162,7 @@
 									class="required">(*)</span> <br />
 								<div class="col-lg-6 col-md-10">
 									<input type="text" name="txtAprovador" id="txtAprovador"
-										class="form-control" readonly /> <input type="hidden"
+										class="form-control limpa" readonly /> <input type="hidden"
 										name="txtCodAprovador" id="txtCodAprovador" /> <input
 										type="hidden" name="txtCodAprovadorFluig"
 										id="txtCodAprovadorFluig" />
@@ -194,7 +194,7 @@
 									do Colaborador</label><span class="required">(*)</span> <br />
 								<div class="col-lg-6 col-md-10">
 									<input type="text" name="txtNomeColaborador"
-										id="txtNomeColaborador" class="form-control"
+										id="txtNomeColaborador" class="form-control limpa"
 										onblur="ValFiltro()" onclick="ApagaCamposFuncionario();" />
 								</div>
 								<div>
@@ -211,7 +211,7 @@
 								<div class="col-lg-5">
 									<input type="hidden" name="txtCodsituacaoValue"
 										id="txtCodsituacaoValue" /> <input type="text"
-										name="txtFuncao" id="txtFuncao" class="form-control" readonly />
+										name="txtFuncao" id="txtFuncao" class="form-control limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -222,7 +222,7 @@
 									class="required">(*)</span> <br />
 								<div class="col-lg-5">
 									<input type="text" name="txtCodsituacao" id="txtCodsituacao"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 									class="required">(*)</span> <br />
 								<div class="col-lg-5">
 									<input type="text" name="txtTELEFONE" id="txtTELEFONE"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -244,7 +244,7 @@
 									de registro</label><span class="required">(*)</span> <br />
 								<div class="col-lg-5">
 									<input type="text" name="txtRegistro" id="txtRegistro"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -255,7 +255,7 @@
 									&Aacute;rea</label><span class="required">(*)</span> <br />
 								<div class="col-lg-5">
 									<input type="text" name="txtDpto" id="txtDpto"
-										class="form-control" readonly /> <input type="hidden"
+										class="form-control limpa" readonly /> <input type="hidden"
 										id="txtCodSecao" name="txtCodSecao"> <input
 										type="hidden" id="txtGestordoGrupo" name="txtGestordoGrupo">
 								</div>
@@ -268,7 +268,7 @@
 									class="required">(*)</span> <br />
 								<div class="col-lg-5">
 									<input type="text" name="txtEstavel" id="txtEstavel"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -278,11 +278,11 @@
 								<label for="cpTipoAviso" class="col-lg-4 control-label">Tipo
 									Aviso</label><span class="required">(*)</span> <br />
 								<div class="col-lg-6">
-									<input type="hidden" id="cpDtsAviso" name="cpDtsAviso">
+									<input type="hidden" id="cpDtsAviso" name="cpDtsAviso"">
 										<input type="hidden" id="cpDataDesligamento"
 										name="cpDataDesligamento"> <input type="hidden"
 											id="cpAvisoTipo" name="cpAvisoTipo"> <select
-												name="cpTipoAviso" id="cpTipoAviso" class="form-control">
+												name="cpTipoAviso" id="cpTipoAviso" class="form-control limpa">
 													<option value="0">&nbsp;</option>
 													<option value="1">AVISO TRABALHADO</option>
 													<option value="2">AVISO INDENIZADO</option>
@@ -299,7 +299,7 @@
 									desligamento</label><span class="required">(*)</span> <br />
 								<div class="col-lg-6 col-md-10">
 									<input type="text" name="txtMotDeslig" id="txtMotDeslig"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 								<div>
 									<button type="button" id="MotDemissao"
@@ -313,7 +313,7 @@
 									de desligamento</label><span class="required">(*)</span> <br />
 								<div class="col-lg-6 col-md-10">
 									<input type="text" name="txtTipoDeslig" id="txtTipoDeslig"
-										class="form-control" readonly />
+										class="form-control limpa" readonly />
 								</div>
 								<div>
 									<button type="button" id="TpDemissao"
@@ -329,7 +329,7 @@
 									de Admiss&atilde;o</label><span class="required">(*)</span> <br />
 								<div class="col-lg-5 col-md-10">
 									<input type="text" name="dtAdmissao" id="dtAdmissao"
-										class="form-control cpDataOn" readonly />
+										class="form-control cpDataOn limpa" readonly />
 								</div>
 							</div>
 						</div>
@@ -340,14 +340,10 @@
 									Desligamento</label><span class="required">(*)</span> <br />
 								<div class="col-lg-6 col-md-10">
 									<input type="text" name="dtDemissao" id="dtDemissao"
-										class="form-control cpDataOn" readonly />
+										class="form-control cpDataOn limpa" readonly />
 								</div>
 							</div>
 						</div>
-
-
-
-
 
 
 					</div>
@@ -529,7 +525,7 @@
 									<td>
 										<div class="col-md-8 input-group">
 											<input type="text" name="txtRateio" id="txtRateifo"
-												class="form-control input-sm"
+												class="form-control input-sm ProvDesc"
 												onkeypress="return NumbersOnly(event);"
 												onkeyup="validaPercentual(this)" />
 											<div class="input-group-addon">%</div>
@@ -543,8 +539,8 @@
 									</td>
 									<td>
 										<div class="col-md-8 input-group valor">
-											<input type="text" name="txtValor" id="txtValor"
-												class="form-control input-sm" />
+											<input type="text" name="txtValor" id="txtValor" onkeypress="return formatar_moeda(this,',','.',event);"
+												class="form-control input-sm valor" />
 										</div>
 									</td>
 								</tr>
