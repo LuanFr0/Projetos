@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript"
+	src="http://integralonlinetst.fluig.com/portal/resources/js/jquery/jquery.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="http://integralonlinetst.fluig.com/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+<script type="text/javascript"
+	src="http:http://integralonlinetst.fluig.com/portal/resources/style-guide/js/fluig-style-guide.min.js"
+	charset="utf-8"></script>
+<link
+	href="http://integralonlinetst.fluig.com/portal/resources/css/jquery-ui/jquery.ui.min.css"
+	type="text/css" rel="stylesheet" />
+<script
+	src="http://integralonlinetst.fluig.com/portal/resources/js/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="jquery.mask.min.js"></script>
+<script type="text/javascript" src="../vcXMLRPC.js"></script>
+<script type="text/javascript" src="jquery.dataTables.min.js"> </script>
+<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+
+<!-- Importação dos script do formulario-->
+<script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+<script type="text/javascript" src="zoom.js"></script>
+
+<link type="text/css" rel="stylesheet" href="estilo.css" />
+<link type="text/css" rel="stylesheet" href="jquery.dataTables.min.css" />
+<link type="text/css" rel="stylesheet"
+	href="jquery.dataTables_themeroller.css" />
+
+</head>
+
+<body onload="load()">
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input type="hidden" id="cpCheckCodigo" name="cpCheckCodigo">
+				<input type="hidden" name="txtCodcoligada" id="txtCodcoligada" /> <input
+				type="hidden" name="cpColaboradores" id="cpColaboradores" />
+				<fieldset class="fieldset table-bordered col-lg-12">
+
+					<div id="Cabecalho">
+						<div class="col-md-2">
+							<img
+								src="http://integralonlinetst.fluig.com/webdesk/streamcontrol/LogoIntegralSmall.jpg?WDNrDocto=65&WDNrVersao=1000&WDCompanyId=1"
+								alt="logo">
+						</div>
+						<div class="col-md-8">
+							<div class="col-md-12 text-center">
+								<h2>Solicita&ccedil;&atilde;o de Desligamento</h2>
+							</div>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="txtNumSol">N&uacute;mero
+								Solicita&ccedil;&atilde;o:</label> <input type="text" name="txtNumSol"
+								id="txtNumSol" class="form-control" readonly />
+						</div>
+					</div>
+				</fieldset>
+
+				<p>&nbsp;</p>
+
+				<div class="panel panel-default">
+
+					<div class="panel-heading ">
+						<h3 class="panel-title">Dados do Solicitante</h3>
+					</div>
+
+					<div class="panel-body">
+						<div class="col-md-4">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDtAbertura" class="col-lg-7 control-label">Data
+									da Abertura</label> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtDtAbertura" id="txtDtAbertura"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDtAbertura" class="col-lg-7 control-label">Nome
+									Solicitante</label> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtNomeSol" id="txtNomeSol"
+										class="form-control" readonly /> <input type="hidden"
+										id="cpMatriculaSolicitante" name="cpMatriculaSolicitante">
+										<input type="hidden" id="cpLoginFluig" name="cpLoginFluig">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDtAbertura" class="col-lg-7 control-label">Cargo
+									Solicitante</label> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtCargoSol" id="txtCargoSol"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDtAbertura" class="col-lg-7 control-label">Departamento
+									Solicitante</label> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtDeptoSol" id="txtDeptoSol"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDtAbertura" class="col-lg-7 control-label">Email
+									Solicitante</label> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtEmailSol" id="txtEmailSol"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel panel-default">
+
+					<div class="panel-heading ">
+						<h3 class="panel-title">&Aacute;rea Solicitante</h3>
+					</div>
+
+					<div class="panel-body">
+
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtAreaReq" class="col-lg-4 control-label">&Aacute;rea
+									Requisitante</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="txtAreaReq" id="txtAreaReq"
+										class="form-control" readonly onblur="verificaDpto();" /> <input
+										type="hidden" name="txtCodAreaReq" id="txtCodAreaReq" />
+								</div>
+								<div>
+									<button type="button" id="btnAddAreaRequisitante"
+										class="btn btn-default fluigicon fluigicon-search fluigicon-xs"
+										onclick="addAreaRequisitante();"></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtAprovador" class="col-lg-4 control-label">Aprovador:</label><span
+									class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="txtAprovador" id="txtAprovador"
+										class="form-control" readonly /> <input type="hidden"
+										name="txtCodAprovador" id="txtCodAprovador" /> <input
+										type="hidden" name="txtCodAprovadorFluig"
+										id="txtCodAprovadorFluig" />
+								</div>
+
+								<button type="button" id="btnAddAprovador"
+									class="btn btn-default fluigicon fluigicon-search fluigicon-xs"
+									onclick="addAprovador()"></button>
+
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+
+
+				<div class="panel panel-default">
+
+					<div class="panel-heading ">
+						<h3 class="panel-title">Dados do Funcion&aacute;o</h3>
+					</div>
+
+					<div class="panel-body">
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtNomeColaborador" class="col-lg-4 control-label">Nome
+									do Colaborador</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="txtNomeColaborador"
+										id="txtNomeColaborador" class="form-control"
+										onblur="ValFiltro()" onclick="ApagaCamposFuncionario();" />
+								</div>
+								<div>
+									<button type="button" id="Funcionarios"
+										class="btn btn-default fluigicon fluigicon-search fluigicon-xs"></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtFuncao" class="col-lg-7 control-label">Fun&ccedil;&atilde;o</label><span
+									class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="hidden" name="txtCodsituacaoValue"
+										id="txtCodsituacaoValue" /> <input type="text"
+										name="txtFuncao" id="txtFuncao" class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtCodsituacao" class="col-lg-7 control-label">Situa&ccedil;&atilde;o</label><span
+									class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtCodsituacao" id="txtCodsituacao"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtTELEFONE" class="col-lg-7 control-label">Telefone</label><span
+									class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtTELEFONE" id="txtTELEFONE"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtRegistro" class="col-lg-7 control-label">N&uacute;mero
+									de registro</label><span class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtRegistro" id="txtRegistro"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtDpto" class="col-lg-7 control-label">Unidade
+									&Aacute;rea</label><span class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtDpto" id="txtDpto"
+										class="form-control" readonly /> <input type="hidden"
+										id="txtCodSecao" name="txtCodSecao"> <input
+										type="hidden" id="txtGestordoGrupo" name="txtGestordoGrupo">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtEstavel" class="col-lg-7 control-label">Estabilidade</label><span
+									class="required">(*)</span> <br />
+								<div class="col-lg-5">
+									<input type="text" name="txtEstavel" id="txtEstavel"
+										class="form-control" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="cpTipoAviso" class="col-lg-4 control-label">Tipo
+									Aviso</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6">
+									<input type="hidden" id="cpDtsAviso" name="cpDtsAviso">
+										<input type="hidden" id="cpDataDesligamento"
+										name="cpDataDesligamento"> <input type="hidden"
+											id="cpAvisoTipo" name="cpAvisoTipo"> <select
+												name="cpTipoAviso" id="cpTipoAviso" class="form-control">
+													<option value="0">&nbsp;</option>
+													<option value="1">AVISO TRABALHADO</option>
+													<option value="2">AVISO INDENIZADO</option>
+													<option value="3">N&Atilde;O SE APLICA</option>
+											</select>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtMotDeslig" class="col-lg-4 control-label">Motivo
+									desligamento</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="txtMotDeslig" id="txtMotDeslig"
+										class="form-control" readonly />
+								</div>
+								<div>
+									<button type="button" id="MotDemissao"
+										class="btn btn-default fluigicon fluigicon-search fluigicon-xs"></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtTipoDeslig" class="col-lg-4 control-label">Tipo
+									de desligamento</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="txtTipoDeslig" id="txtTipoDeslig"
+										class="form-control" readonly />
+								</div>
+								<div>
+									<button type="button" id="TpDemissao"
+										class="btn btn-default fluigicon fluigicon-search fluigicon-xs"></button>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="dtAdmissao" class="col-lg-7 control-label">Data
+									de Admiss&atilde;o</label><span class="required">(*)</span> <br />
+								<div class="col-lg-5 col-md-10">
+									<input type="text" name="dtAdmissao" id="dtAdmissao"
+										class="form-control cpDataOn" readonly />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="dtDemissao" class="col-lg-4 control-label ">Data
+									Desligamento</label><span class="required">(*)</span> <br />
+								<div class="col-lg-6 col-md-10">
+									<input type="text" name="dtDemissao" id="dtDemissao"
+										class="form-control cpDataOn" readonly />
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+					</div>
+				</div>
+
+
+
+				<div class="panel panel-default">
+
+					<div class="panel-heading ">
+						<h3 class="panel-title">Question&aacute;rio de desligamento</h3>
+					</div>
+
+					<div class="panel-body">
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtContratacao" class="col-lg-4 control-label">Apto
+									para contrata&ccedil;&atilde;o</label><span class="required8">(*)</span>
+								<br />
+								<div class="col-lg-6">
+									<select name="txtContratacao" id="txtContratacao"
+										class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Sim</option>
+										<option value="2">N&Atilde;O</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtFuncionario" class="col-lg-4 control-label">Avalia&ccedil;&atilde;o
+									Pessoal do Funcion&aacute;rio</label><span class="required8">(*)</span>
+								<br />
+								<div class="col-lg-6">
+									<select name="txtFuncionario" id="txtFuncionario"
+										class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Muito Bom</option>
+										<option value="2">Bom</option>
+										<option value="3">Regular</option>
+										<option value="4">Fraco</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtProfissional" class="col-lg-4 control-label">Avalia&ccedil;&atilde;o
+									Profissional do Funcion&aacute;rio</label><span class="required8">(*)</span>
+								<br />
+								<div class="col-lg-6">
+									<select name="txtProfissional" id="txtProfissional"
+										class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Muito Bom</option>
+										<option value="2">Bom</option>
+										<option value="3">Regular</option>
+										<option value="4">Fraco</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtAssiduidade" class="col-lg-4 control-label">Avalia&ccedil;&atilde;o
+									de Assiduidade</label><span class="required8">(*)</span> <br />
+								<div class="col-lg-6">
+									<select name="txtAssiduidade" id="txtAssiduidade"
+										class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Muito Bom</option>
+										<option value="2">Bom</option>
+										<option value="3">Regular</option>
+										<option value="4">Fraco</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtAssiduidade" class="col-lg-4 control-label">Atende
+									Normas de Seguran&ccedil;a do Trabalho?</label><span class="required8">(*)</span>
+								<br />
+								<div class="col-lg-6">
+									<select name="txtNormas" id="txtNormas" class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Sim</option>
+										<option value="2">N&atilde;o</option>
+										<option value="3">N&atilde;o se aplica</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="col-lg-12 form-group fs-no-padding">
+								<label for="txtAtxtQualidadessiduidade"
+									class="col-lg-4 control-label">Atende Normas de
+									Qualidade?</label><span class="required8">(*)</span> <br />
+								<div class="col-lg-6">
+									<select name="txtQualidade" id="txtQualidade"
+										class="form-control">
+										<option value="0">&nbsp;</option>
+										<option value="1">Sim</option>
+										<option value="2">N&atilde;o</option>
+										<option value="3">N&atilde;o se aplica</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12 form-group">
+							<label for="txtObs" class="col-lg-2 control-label">Descreva
+								sua observa&ccedil;&atilde;o</label><span class="required8">(*)</span> <br />
+							<div class="col-lg-9">
+								<textarea name="txtObs" id="txtObs" class="form-control"
+									rows="3"></textarea>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+
+					<div class="panel-heading ">
+						<h3 class="panel-title">Comanda de Rescis&atilde;o</h3>
+					</div>
+
+					<div class="panel-body">
+						<input type="button" id="btnAdd" value="Adicionar"
+							onclick="addTabela()" />
+
+						<table id="tbComanda" tablename="tbComanda" noaddbutton="true"
+							nodeletebutton="true" cellspacing="0"
+							class="table table-striped table-condensed tbComanda">
+							<thead>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="col-md-4"><label>C&oacute;digo</label></td>
+									<td class="col-md-4"><label>Descri&ccedil;&atilde;o
+											do Evento</label></td>
+									<td class="col-md-4"><label>Provento/Desconto</label></td>
+									<td class="col-md-4"><label>Dias/Horas</label></td>
+									<td class="col-md-4"><label>Valor</label></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="linha_tabela">
+									<td><img
+										src="/ecm_resources/resources/assets/images/delete_24_Original.png"
+										onclick="Javascript:fnCustomDeleteRateio(this)"
+										onmouseover="this.style.cursor='hand'"
+										style="cursor: pointer;"></td>
+									<td>
+										<div class="col-md-8 input-group">
+											<input type="text" name="txtCodCustoReduz"
+												id="txtCodCustoReduz" class="form-control input-sm codigo"
+												onblur="carregaCentroCustoRateioFilho(this)" /> <input
+												type="hidden" name="txtCCustoRateio" id="txtCCustoRateio" />
+											<span name="addCentroCustoFilho" id="addCentroCustoFilho"
+												class="input-group-addon zoom openZoomResp"> <span
+												class="fluigicon fluigicon-search"></span>
+											</span>
+										</div>
+									</td>
+									<td>
+										<div class="col-md-8 input-group">
+											<input type="text" class="form-control input-sm"
+												id="txtCentroCustoRateio" name="txtCentroCustoRateio"
+												readonly="readonly">
+										</div>
+									</td>
+									<td>
+										<div class="col-md-8 input-group">
+											<input type="text" name="txtRateio" id="txtRateifo"
+												class="form-control input-sm"
+												onkeypress="return NumbersOnly(event);"
+												onkeyup="validaPercentual(this)" />
+											<div class="input-group-addon">%</div>
+										</div>
+									</td>
+									<td>
+										<div class="col-md-8 input-group">
+											<input type="text" name="txtDiasHoras" id="txtDiasHoras"
+												class="form-control input-sm diasHoras" />
+										</div>
+									</td>
+									<td>
+										<div class="col-md-8 input-group valor">
+											<input type="text" name="txtValor" id="txtValor"
+												class="form-control input-sm" />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+						<div id="accordion">
+							<h3>Parecer do Juridico</h3>
+							<div class="accordion">
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovadoJur" class=" control-label">Nome
+										do Analista Juridico: </label> <input type="text" class="form-control"
+										id="txtAprovadoJur" name="txtAprovadoJur" readonly>
+								</div>
+								<div class="col-sm-5 text-center">
+									<label for="txtAprovacaoJur"
+										class="label-posi col-lg-4 control-label">Demiss&atilde;o
+										Aprovada?</label><span class="required2">*</span> <select
+										class="form-control" name="txtAprovacaoJur"
+										id="txtAprovacaoJur">
+										<option value="0"></option>
+										<option value="1">Aprovada</option>
+										<option value="2">Reprovada</option>
+									</select>
+								</div>
+								<div class="col-sm-11 text-center ">
+									<label for="txtParecer" class="label-posi  control-label">Parecer</label><span
+										class="required2">*</span>
+									<textarea type="text" class="form-control" id="txtParecer"
+										name="txtParecer" placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+							<h3>Aprova&ccedil;&atilde;o do Superintendente</h3>
+							<div>
+								<div class="col-sm-6 text-center">
+									<label for="txtDiretor" class=" control-label">Nome do
+										Diretor: </label> <input type="text" class="form-control"
+										id="txtDiretor" name="txtDiretor" readonly>
+								</div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovDiretor" class="label-posi  control-label">Demiss&atilde;o
+										Aprovada?</label><span class="required3">*</span> <select
+										class="form-control" name="txtAprovDiretor"
+										id="txtAprovDiretor">
+										<option value="0"></option>
+										<option value="1">Aprovado</option>
+										<option value="2">Reprovado</option>
+									</select>
+								</div>
+								<div class="col-sm-12 text-center ">
+									<label for="txtParecerDiretor"
+										class="label-posi  control-label">Parecer</label><span
+										class="required3">*</span>
+									<textarea type="text" class="form-control"
+										id="txtParecerDiretor" name="txtParecerDiretor"
+										placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+
+							<h3>Aprova&ccedil;&atilde;o do Gestor Contrato</h3>
+							<div>
+								<div class="col-sm-6 text-center">
+									<label for="txtGestor" class=" control-label">Nome do
+										Gestor: </label> <input type="text" class="form-control"
+										id="txtGestorContrato" name="txtGestorContrato" readonly>
+								</div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovGestorContrato"
+										class="label-posi  control-label">Demiss&atilde;o
+										Aprovada?</label><span class="required4">*</span> <select
+										class="form-control" name="txtAprovGestorContrato"
+										id="txtAprovGestorContrato">
+										<option value="0"></option>
+										<option value="1">Aprovada</option>
+										<option value="2">Reprovada</option>
+									</select>
+								</div>
+								<div class="col-sm-12 text-center ">
+									<label for="txtParecerGestorContrato"
+										class="label-posi  control-label">Parecer</label><span
+										class="required4">*</span>
+									<textarea type="text" class="form-control"
+										id="txtParecerGestorContrato" name="txtParecerGestorContrato"
+										placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+
+							<h3>Aprova&ccedil;&atilde;o do Gestor do Grupo</h3>
+							<div>
+								<div class="col-sm-6 text-center">
+									<label for="txtGestor" class=" control-label">Nome do
+										Gestor: </label> <input type="text" class="form-control"
+										id="txtGestor" name="txtGestor" readonly>
+								</div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovGestor" class="label-posi  control-label">Demiss&atilde;o
+										Aprovada?</label><span class="required5">*</span> <select
+										class="form-control" name="txtAprovGestor" id="txtAprovGestor">
+										<option value="0"></option>
+										<option value="1">Aprovada</option>
+										<option value="2">Reprovada</option>
+									</select>
+								</div>
+								<div class="col-sm-12 text-center ">
+									<label for="txtParecerGestor" class="label-posi  control-label">Parecer</label><span
+										class="required5">*</span>
+									<textarea type="text" class="form-control"
+										id="txtParecerGestor" name="txtParecerGestor"
+										placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+
+							<h3>Aprova&ccedil;&atilde;o do ASO Demissional</h3>
+							<div>
+								<div class="col-sm-6 text-center">
+									<label for="txtParecerAnalista" class="control-label">Nome
+										do Analista: </label> <input type="text" class="form-control"
+										id="txtParecerAnalista" name="txtParecerAnalista" readonly>
+								</div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovSesmt" class="label-posi  control-label">ASO
+										Demissional Aprovado?</label><span class="required6">*</span> <select
+										class="form-control" name="txtAprovSesmt" id="txtAprovSesmt">
+										<option value="0"></option>
+										<option value="1">Aprovado</option>
+										<option value="2">Reprovado</option>
+									</select>
+								</div>
+								<div class="col-sm-12 text-center ">
+									<label for="txtParecerSesmt" class="label-posi  control-label">Parecer</label><span
+										class="required6">*</span>
+									<textarea type="text" class="form-control" id="txtParecerSesmt"
+										name="txtParecerSesmt" placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+							<h3>Aprova&ccedil;&atilde;o dos Documentos</h3>
+							<div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovadorDocum" class="col-lg-4 control-label">Nome
+										do Analista: </label> <input type="text" class="form-control"
+										id="txtAprovadorDocum" name="txtAprovadorDocum" readonly>
+								</div>
+								<div class="col-sm-6 text-center">
+									<label for="txtAprovDoc"
+										class="label-posi col-lg-4 control-label">Documentos
+										Demissionais?</label><span class="required7">*</span> <select
+										class="form-control" name="txtAprovDoc" id="txtAprovDoc">
+										<option value="0"></option>
+										<option value="1">Aprovado</option>
+										<option value="2">Reprovado</option>
+									</select>
+								</div>
+								<div class="col-sm-12 text-center ">
+									<label for="txtParecerDoc"
+										class="label-posi col-lg-4 control-label">Parecer</label><span
+										class="required7">*</span>
+									<textarea type="text" class="form-control" id="txtParecerDoc"
+										name="txtParecerDoc" placeholder="Informe seu Parecer"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+		</form>
+	</div>
+</body>
+
+</html>

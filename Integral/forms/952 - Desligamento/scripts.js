@@ -53,11 +53,11 @@ if (atividade != "0" && atividade != "1"){
 		
 }
 
-/*if (atividade != "38"){
+if (atividade != "38"){
 	
 	document.getElementById("btnAdd").style.display = "none";
 	document.getElementById("btnAdd").disabled = true;
-}*/
+}
 
 if(atividade == 4){
 	$( "#accordion" ).accordion({ active: 0 });
