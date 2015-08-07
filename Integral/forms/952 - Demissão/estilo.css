@@ -1,0 +1,82 @@
+.legend {
+	display: block;
+	width: 40%;
+	padding: 2px 5px;
+	margin-bottom: 6px;
+	font-size: larger;
+	line-height: inherit;
+	color: #FFF;
+	border: 1px solid #898a8b;
+	border-bottom: 1px solid #e5e5e5;   
+	background-color: #898a8b;
+	border-radius: 7px;
+}
+
+
+fieldset {
+    border: 1px solid #898a8b;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 11px; 
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.tblItens {
+	border-spacing: 0px;
+	height: 200px;
+	width: 100%;
+}
+
+.tbRateio {
+	border-spacing: 0px;
+	height: 200px;
+	width: 100%;
+}
+
+.required{
+    font-weight: bold;
+	list-style-type:none;
+}
+
+.panel-title {
+	padding-left: 14px !important;
+}
+
+.fluig-style-guide .panel-default>.panel-heading {
+	background-color : #693025 !important;
+	color: #FFFFFF !important;
+	font-weight: bold !important;
+}
+
+.fluig-style-guide .panel-title {
+	color: inherit !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.ui-dialog {
+  padding: 0;
+  top: 219%;
+  left: 22%;
+ }
+ 
+ .ui-datepicker-trigger{
+	margin-left: 389px;
+    margin-top: -61px;
+}
+
+.fluig-style-guide .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 182px;
+}
+
+.fluig-style-guide .input-group .form-control:first-child, .fluig-style-guide .input-group-addon:first-child, .fluig-style-guide .input-group-btn:first-child>.btn, .fluig-style-guide .input-group-btn:first-child>.btn-group>.btn, .fluig-style-guide .input-group-btn:first-child>.dropdown-toggle, .fluig-style-guide .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle), .fluig-style-guide .input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    width: 175px;
+}
