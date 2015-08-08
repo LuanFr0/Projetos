@@ -11,7 +11,7 @@ function carregaJquery() {
 	ss
 	$(document).tooltip();
 }
-
+//
 var LinhaAtual = 0;	
 var ZoomResp;
 function load(){
