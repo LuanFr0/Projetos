@@ -8,9 +8,7 @@ function carregaJquery() {
 		active : false,
 		heightStyle : "content"
 	});
-	
-
-	//comentario
+	ss
 	$(document).tooltip();
 }
 
@@ -22,7 +20,7 @@ function load(){
 	//aprovacao gestor
 	if(atividade=="0"){
 		dadossolicitante();
-	}
+	}s
 	
 if(atividade=="1"|| atividade=="0"){
 	FormataData();
