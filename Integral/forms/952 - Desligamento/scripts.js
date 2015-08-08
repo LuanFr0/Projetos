@@ -8,7 +8,9 @@ function carregaJquery() {
 		active : false,
 		heightStyle : "content"
 	});
+	
 
+	//comentario
 	$(document).tooltip();
 }
 
